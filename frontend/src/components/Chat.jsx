@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';// Import Bootstrap
 
-const ENDPOINT = 'http://localhost:3000';
+const ENDPOINT = 'https://chat-application-6lgi.onrender.com';
 
 function Chat({ username, room }) {
   const [messages, setMessages] = useState([]);
