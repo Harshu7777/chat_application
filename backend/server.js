@@ -2,16 +2,12 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
-import dotenv from 'dotenv';
-
-// Load environment variables from .env file (if needed)
-dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Dynamically set the frontend URL for deployment
+    origin:"http://localhost:5173", // Dynamically set the frontend URL for deployment
     methods: ["GET", "POST"],
   }
 });
@@ -79,7 +75,7 @@ io.on('connection', (socket) => {
 });
 
 // Define port (from environment variable or default to 3000)
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 httpServer.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
